@@ -1,0 +1,17 @@
+[+] Building 1.0s (10/10) FINISHED                                                                       docker:default
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 436B                                                                               0.0s
+ => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                           0.8s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [1/5] FROM docker.io/continuumio/miniconda3:latest@sha256:4a2425c3ca891633e5a27280120f3fb6d5960a0f509b7594632  0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 25B                                                                                   0.0s
+ => CACHED [2/5] WORKDIR /app                                                                                      0.0s
+ => CACHED [3/5] COPY 1.sh /app/1.sh                                                                               0.0s
+ => CACHED [4/5] RUN chmod +x /app/1.sh                                                                            0.0s
+ => CACHED [5/5] RUN pip install --no-cache-dir mlflow boto3 pymysql                                               0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:d92f02aef3e7b512e5544bd83f77b910f82559253a8fe9ca5d2bd6fb93e06f40                       0.0s
+ => => naming to docker.io/library/netology-ml:netology-ml                                                         0.0s
