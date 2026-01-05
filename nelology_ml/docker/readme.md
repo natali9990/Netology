@@ -11,6 +11,11 @@
   - pymysql
 
 ## Сборка образа
+Лог сборки сохранён в файле `build.log`.
 
 ```bash
 docker build -t netology-ml:netology-ml .
+
+
+
+
