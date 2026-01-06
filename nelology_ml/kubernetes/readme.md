@@ -33,3 +33,41 @@ Compute / GPU nodes - для ML, high-load, batch jobs, Spot / Preemptible nodes
 ● внутри него сервер приложений tomcat версии 8.5.69 с портом 8080 
 ● наличие 2 реплик 
 ● использование стратегии rollingupdate
+
+# Kubernetes Deployment: netology-ml
+
+## Описание
+В рамках данного задания создан Kubernetes-манифест для развёртывания приложения
+на базе **Apache Tomcat версии 8.5.69**.
+
+Манифест описывает объект **Deployment** с использованием стратегии обновления
+**RollingUpdate** и количеством реплик **2**.
+
+RollingUpdate и replicas настраиваются через Deployment,
+а Deployment не может иметь apiVersion: v1 — корректная версия apps/v1
+
+---
+
+## Параметры Deployment
+- **Название:** netology-ml  
+- **Тип ресурса:** Deployment  
+- **Количество реплик:** 2  
+- **Стратегия обновления:** RollingUpdate  
+- **Контейнер:** tomcat:8.5.69  
+- **Порт контейнера:** 8080  
+
+---
+
+## Структура репозитория
+├── deployment.yaml
+└── README.md
+
+
+---
+
+## Применение манифеста
+Для развёртывания Deployment в кластере Kubernetes выполните команду:
+
+```bash
+kubectl apply -f deployment.yaml
+
