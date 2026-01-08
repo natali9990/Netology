@@ -40,35 +40,35 @@ ansible-playbook -i inventory homework.yaml
 
 
 ```text
-PLAY [netology-ml] *****************************************************
+PLAY [netology-ml] *****************************************************************************************************
 
-TASK [Ping hosts] ******************************************************
-ok: [host1]
-ok: [host2]
+TASK [Gathering Facts] *************************************************************************************************
+ok: [localhost]
 
-TASK [Update apt cache] ************************************************
-changed: [host1]
-changed: [host2]
+TASK [Ping hosts] ******************************************************************************************************
+ok: [localhost]
 
-TASK [Install required packages] **************************************
-ok: [host1]
-ok: [host2]
+TASK [Update apt cache] ************************************************************************************************
+changed: [localhost]
 
-TASK [Copy test.txt to remote hosts] **********************************
-changed: [host1]
-changed: [host2]
+TASK [Install required packages] ***************************************************************************************
+ok: [localhost]
 
-TASK [Create user groups] *********************************************
-changed: [host1] => (item=devops_1)
-changed: [host1] => (item=test_1)
-changed: [host2] => (item=devops_1)
-changed: [host2] => (item=test_1)
+TASK [Copy test.txt to remote hosts] ***********************************************************************************
+changed: [localhost]
 
-TASK [Create users with home directories] *****************************
-changed: [host1] => (item=devops_1)
-changed: [host1] => (item=test_1)
-changed: [host2] => (item=devops_1)
-changed: [host2] => (item=test_1)
+TASK [Create user groups] **********************************************************************************************
+changed: [localhost] => (item=devops_1)
+changed: [localhost] => (item=test_1)
+
+TASK [Create users with home directories] ******************************************************************************
+changed: [localhost] => (item=devops_1)
+changed: [localhost] => (item=test_1)
+
+PLAY RECAP *************************************************************************************************************
+localhost                  : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+ansible@compute-vm-4-16-60-ssd-1751297344083:~/Netology/nelology_ml/ansible$
 
 PLAY RECAP *************************************************************
 host1 : ok=7  changed=4  unreachable=0  failed=0
