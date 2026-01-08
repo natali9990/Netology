@@ -1,0 +1,53 @@
+---
+- name: netology-ml
+  hosts: netology
+  become: true
+
+  vars:
+    packages:
+      - net-tools
+      - git
+      - tree
+      - htop
+      - mc
+      - vim
+
+    users:
+      - devops_1
+      - test_1
+
+  tasks:
+    - name: Ping hosts
+      ansible.builtin.ping:
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install required packages
+      ansible.builtin.apt:
+        name: "{{ packages }}"
+        state: present
+
+    - name: Copy test.txt to remote hosts
+      ansible.builtin.copy:
+        src: test.txt
+        dest: /tmp/test.txt
+        owner: ansible
+        group: ansible
+        mode: '0644'
+
+    - name: Create user groups
+      ansible.builtin.group:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ users }}"
+
+    - name: Create users with home directories
+      ansible.builtin.user:
+        name: "{{ item }}"
+        group: "{{ item }}"
+        create_home: yes
+        shell: /bin/bash
+        state: present
+      loop: "{{ users }}"
